@@ -1,4 +1,25 @@
 var searchData=
 [
-  ['hooks_0',['Hooks',['../md_Articles_Hooks.html',1,'']]]
+  ['hook_5fcombineitems_20ref_20cb_3a_3aitem_20draggeditem_20ref_20cb_3a_3aitem_20draggedontoitem_0',['void Hook_CombineItems(@ref CB::Item \@ draggedItem, @ref CB::Item \@ draggedOntoItem)',['../md_Articles_2Hooks.html#autotoc_md18',1,'']]],
+  ['hook_5fcreatenpc_20ref_20cb_3a_3anpc_1',['void Hook_CreateNPC(@ref CB::NPC \@)',['../md_Articles_2Hooks.html#autotoc_md19',1,'']]],
+  ['hook_5fdrawhud_2',['bool Hook_DrawHUD()',['../md_Articles_2Hooks.html#autotoc_md4',1,'']]],
+  ['hook_5fdropitem_20ref_20cb_3a_3aitem_3',['bool Hook_DropItem(@ref CB::Item \@)',['../md_Articles_2Hooks.html#autotoc_md16',1,'']]],
+  ['hook_5ffillroom_20ref_20cb_3a_3aroom_4',['bool Hook_FillRoom(@ref CB::Room \@)',['../md_Articles_2Hooks.html#autotoc_md10',1,'']]],
+  ['hook_5finitialize_5',['void Hook_Initialize()',['../md_Articles_2Hooks.html#autotoc_md1',1,'']]],
+  ['hook_5finitializeevents_6',['bool Hook_InitializeEvents()',['../md_Articles_2Hooks.html#autotoc_md8',1,'']]],
+  ['hook_5fkillplayer_7',['bool Hook_KillPlayer()',['../md_Articles_2Hooks.html#autotoc_md7',1,'']]],
+  ['hook_5floadroomtemplateentity_20ref_20cb_3a_3aroomtemplate_20int_20rmeshversion_20ref_20b3d_3a_3astream_20string_20entityname_8',['bool Hook_LoadRoomTemplateEntity(@ref CB::RoomTemplate \@, int rMeshVersion, @ref B3D::Stream \@, string entityName)',['../md_Articles_2Hooks.html#autotoc_md12',1,'']]],
+  ['hook_5fmouselook_9',['bool Hook_MouseLook()',['../md_Articles_2Hooks.html#autotoc_md6',1,'']]],
+  ['hook_5fmoveplayer_10',['bool Hook_MovePlayer()',['../md_Articles_2Hooks.html#autotoc_md5',1,'']]],
+  ['hook_5fpickitem_20ref_20cb_3a_3aitem_11',['bool Hook_PickItem(@ref CB::Item \@)',['../md_Articles_2Hooks.html#autotoc_md15',1,'']]],
+  ['hook_5fpostcreatenpc_20ref_20cb_3a_3anpc_12',['void Hook_PostCreateNPC(@ref CB::NPC \@)',['../md_Articles_2Hooks.html#autotoc_md20',1,'']]],
+  ['hook_5fpostfillroom_20ref_20cb_3a_3aroom_13',['void Hook_PostFillRoom(@ref CB::Room \@)',['../md_Articles_2Hooks.html#autotoc_md11',1,'']]],
+  ['hook_5fremoveitem_20ref_20cb_3a_3aitem_14',['void Hook_RemoveItem(@ref CB::Item \@)',['../md_Articles_2Hooks.html#autotoc_md14',1,'']]],
+  ['hook_5fsaveoptions_15',['void Hook_SaveOptions()',['../md_Articles_2Hooks.html#autotoc_md2',1,'']]],
+  ['hook_5fselectitem_20ref_20cb_3a_3aitem_16',['void Hook_SelectItem(@ref CB::Item \@)',['../md_Articles_2Hooks.html#autotoc_md17',1,'']]],
+  ['hook_5fupdate_17',['void Hook_Update()',['../md_Articles_2Hooks.html#autotoc_md3',1,'']]],
+  ['hook_5fupdateevent_20ref_20cb_3a_3aevent_18',['bool Hook_UpdateEvent(@ref CB::Event \@)',['../md_Articles_2Hooks.html#autotoc_md9',1,'']]],
+  ['hook_5fupdateitem_20ref_20cb_3a_3aitem_19',['bool Hook_UpdateItem(@ref CB::Item \@)',['../md_Articles_2Hooks.html#autotoc_md13',1,'']]],
+  ['hook_5fupdatenpc_20ref_20cb_3a_3anpc_20',['bool Hook_UpdateNPC(@ref CB::NPC \@)',['../md_Articles_2Hooks.html#autotoc_md21',1,'']]],
+  ['hooks_21',['Hooks',['../md_Articles_2Hooks.html',1,'']]]
 ];
