@@ -4,7 +4,9 @@ var namespaceCB =
     [ "Decal", "namespaceCB_1_1Decal.html", null ],
     [ "Door", "namespaceCB_1_1Door.html", null ],
     [ "Dreamfilter", "namespaceCB_1_1Dreamfilter.html", null ],
-    [ "Event", "namespaceCB_1_1Event.html", null ],
+    [ "Event", "namespaceCB_1_1Event.html", [
+      [ "Create", "namespaceCB_1_1Event.html#a516feb1e608fd80640c9b79d516b7bda", null ]
+    ] ],
     [ "Forest", "namespaceCB_1_1Forest.html", null ],
     [ "Input", "namespaceCB_1_1Input.html", null ],
     [ "Inventory", "namespaceCB_1_1Inventory.html", null ],
