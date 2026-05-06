@@ -48,5 +48,6 @@ var as_8predefined =
     [ "CB.Item", "classCB_1_1Item.html", null ],
     [ "CB.Inventory", "classCB_1_1Inventory.html", null ],
     [ "CB.Console.Msg", "classCB_1_1Console_1_1Msg.html", null ],
-    [ "CB.Event", "classCB_1_1Event.html", null ]
+    [ "CB.Event", "classCB_1_1Event.html", null ],
+    [ "CreateMessage", "as_8predefined.html#ac85ce1c9e2b34f03d873594300e252a1", null ]
 ];
