@@ -103,65 +103,72 @@ void Hook_Initialize()</h1>
 <p>This is where custom image, font, shader and audio resources, as well as custom options can be loaded.</p>
 <dl class="section attention"><dt>Attention</dt><dd>All entities, brushes and textures are freed when quitting to the main menu. Therefore, these should <em>NOT</em> be loaded here.</dd></dl>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+void Hook_Shutdown()</h1>
+<p>Called when your mod is unloaded.</p>
+<p>Resources loaded in <span class="tt">Hook_Initialize</span> should be freed here.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 void Hook_SaveOptions()</h1>
 <p>Called when the game's options are being serialized to the <span class="tt">options.ini</span> file, allowing your mod to serialize its own options with it as well.</p>
 <dl class="section remark"><dt>Remarks</dt><dd>When saving your custom options, prefix them with an identifier that is (hopefully) unique to your mod, in order to prevent potential conflicts with other mods.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 void Hook_Update()</h1>
 <p>Called once per frame after the game has finished its processing and rendering, but before the rendered image is displayed to the screen.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 bool Hook_DrawHUD()</h1>
 <p>Called before the HUD is drawn.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 bool Hook_MovePlayer()</h1>
 <p>Called before the player character is moved according to the current game states and the player's inputs.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
 bool Hook_MouseLook()</h1>
 <p>Called before the player's mouse input is translated to the player camera's pitch and yaw.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
 bool Hook_KillPlayer()</h1>
 <p>Called before the player character would be killed. The player is not killed when overriden.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+bool Hook_ExecuteConsoleCommand(<a class="el" href="classstring.html" title="string">string</a> cmd)</h1>
+<p>Called when a console command is being executed by the player. Used to implement custom console commands or modify the behavior of existing ones.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
 bool Hook_InitializeEvents()</h1>
 <p>Called before the events for a newly created save are initialized. Allows initializing custom events via <a class="el" href="namespaceCB_1_1Event.html#a516feb1e608fd80640c9b79d516b7bda" title="CB.Event.Create">CB.Event.Create</a>.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 bool Hook_UpdateEvent(<a class="el" href="classCB_1_1Event.html" title="CB.Event">CB.Event</a> @)</h1>
 <p>Called for every event every frame. Used to add behavior to custom events or modify the behavior of existing events.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 bool Hook_FillRoom(<a class="el" href="classCB_1_1Room.html" title="CB.Room">CB.Room</a> @)</h1>
 <p>Called when a room is created, before it is filled with doors, items and other entities. Used to add entities to custom rooms or modify the entities found in existing rooms.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 void Hook_PostFillRoom(<a class="el" href="classCB_1_1Room.html" title="CB.Room">CB.Room</a> @)</h1>
 <p>Called when a room is created, after it has been filled with doors, items and other entities. Used to manipulate the entities the room has been filled with.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
-bool Hook_LoadRoomTemplateEntity(<a class="el" href="classCB_1_1RoomTemplate.html" title="CB.RoomTemplate">CB.RoomTemplate</a> @, int rMeshVersion, <a class="el" href="classB3D_1_1Stream.html" title="B3D.Stream">B3D.Stream</a> @, string entityName)</h1>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+bool Hook_LoadRoomTemplateEntity(<a class="el" href="classCB_1_1RoomTemplate.html" title="CB.RoomTemplate">CB.RoomTemplate</a> @, int rMeshVersion, <a class="el" href="classB3D_1_1Stream.html" title="B3D.Stream">B3D.Stream</a> @, <a class="el" href="classstring.html" title="string">string</a> entityName)</h1>
 <p>Called before a map entity is loaded from an .rmesh file. Can be used to implement custom map entity types or override how existing entity types are loaded.</p>
 <dl class="section remark"><dt>Remarks</dt><dd>When implementing a custom map entity type, include a version byte in order to support backwards compatibility.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
 bool Hook_UpdateItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
 <p>Called for every item every frame. Can be used for custom item logic. Handles gravity, reachability calculations for being picked up by the player and item-push behavior unless overriden.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
 void Hook_RemoveItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
 <p>Called when an item is removed from the world and freed.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
 bool Hook_PickItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
 <p>Called when the player tries to pick up an item with sufficient inventory space remaining. The item is not added to the player's inventory when this function is overriden.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
 bool Hook_DropItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
 <p>Called after the player dropped an item from their inventory.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
 void Hook_SelectItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
 <p>Called when the player uses an item from their inventory.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
 void Hook_CombineItems(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @ draggedItem, <a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @ draggedOntoItem)</h1>
 <p>Called when the player tries to combine two items.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
 void Hook_CreateNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a> @)</h1>
 <p>Called before an NPC is initialized according to its CB::NPC::Type.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
 void Hook_PostCreateNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a> @)</h1>
 <p>Called after an NPC is initialized.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
 bool Hook_UpdateNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a> @)</h1>
 <p>Called for every NPC every frame. Used to add behavior to custom NPCs or modify the behavior of existing NPCs. </p>
 </div></div><!-- contents -->

@@ -125,6 +125,8 @@ var NAVTREEINDEX0 =
 "md_Articles_2Hooks.html#autotoc_md2":[0,1],
 "md_Articles_2Hooks.html#autotoc_md20":[0,19],
 "md_Articles_2Hooks.html#autotoc_md21":[0,20],
+"md_Articles_2Hooks.html#autotoc_md22":[0,21],
+"md_Articles_2Hooks.html#autotoc_md23":[0,22],
 "md_Articles_2Hooks.html#autotoc_md3":[0,2],
 "md_Articles_2Hooks.html#autotoc_md4":[0,3],
 "md_Articles_2Hooks.html#autotoc_md5":[0,4],
