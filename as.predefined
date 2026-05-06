@@ -472,6 +472,20 @@ CB::Event@ get_Last() property;
 CB::Sound@ LoadSound(CB::Event@ event, string file, int num = 0);
 //! Creates an event.
 CB::Event@ Create(string eventName, string roomName, int id, float probability = 0);
+//! Updates an elevator.
+/*!
+    \param state The room state to serve as the previous elevator state.
+    \param door1 The first elevator door.
+    \param door2 The second elevator door.
+    \param room1 The pivot the first elevator room should use.
+    \param room2 The pivot the second elevator room should use.
+    \param event The event the elevator is associated with.
+    \param ignorerotation Whether or not to ignore the rotation of the pivots.
+    \attention Each pivot should sit at the bottom of their respective elevator space roughly 560 x 560 x 560 at roomscale.
+
+    \returns The next elevator state.
+    \attention The caller is responsible for maintaining the elevator's state. It is recommended to call this function from \ref Hook_UpdateEvent and store it via one of the event's states.
+*/
 float UpdateElevator(float state, CB::Door@ door1, CB::Door@ door2, B3D::Entity@ room1, B3D::Entity@ room2, CB::Event@ event, bool ignorerotation = true);
 }
 
