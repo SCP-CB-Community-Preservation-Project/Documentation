@@ -2413,12 +2413,12 @@ B3D::Pivot@ Head;
 float KillTimer;
 int KillAnimation;
 float FallTimer;
-float DeathTimer;
+float DeathTimer; /*!< If set to a value above 0, then the player character will die after DeathTimer seconds. */
 float Sanity;
 float ForceMove;
 float ForceAngle;
 int RestoreSanity;
-bool Playable;
+bool Playable; /*!< Whether or not the player can currently control the character. */
 float BlinkFrequency;
 float BlinkTimer;
 float EyeIrritation;
@@ -2444,8 +2444,8 @@ int WearingNightVision;
 float NVTimer;
 bool SuperMan;
 float SuperManTimer;
-float Injuries;
-float Bloodloss;
+float Injuries; /*!< How injured the player character currently is, values above 1 incur bloodloss over time. */
+float Bloodloss; /*!< How much blood (from 0 to 100) the player character has lost. */
 float Infect;
 float HealTimer;
 int RefinedItems;
@@ -2456,8 +2456,8 @@ float UserCameraPitch;
 float Side;
 bool Crouch;
 float CrouchState;
-int PlayerZone;
-CB::Room@ CurrentRoom;
+int PlayerZone; /*!< The zone the player character is currently occupying. */
+CB::Room@ CurrentRoom; /*!< The room the player character is currently occupying. */
 int GrabbedEntity;
 bool GodMode;
 bool NoClip;
