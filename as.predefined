@@ -462,6 +462,7 @@ namespace CB::Event {
 CB::Event@ get_First() property;
 CB::Event@ get_Last() property;
 CB::Sound@ LoadSound(CB::Event@ event, string file, int num = 0);
+//! Creates an event.
 CB::Event@ Create(string eventName, string roomName, int id, float probability = 0);
 float UpdateElevator(float state, CB::Door@ door1, CB::Door@ door2, B3D::Entity@ room1, B3D::Entity@ room2, CB::Event@ event, bool ignorerotation = true);
 }
