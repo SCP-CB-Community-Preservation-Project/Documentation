@@ -6,7 +6,7 @@ var indexSectionsWithContent =
   3: "a",
   4: "c",
   5: "bcdip",
-  6: "h"
+  6: "bcdehirsv"
 };
 
 var indexSectionNames =

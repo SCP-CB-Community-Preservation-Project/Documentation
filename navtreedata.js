@@ -34,19 +34,19 @@ var NAVTREE =
       [ "bool Hook_MouseLook()", "md_Articles_2Hooks.html#autotoc_md6", null ],
       [ "bool Hook_KillPlayer()", "md_Articles_2Hooks.html#autotoc_md7", null ],
       [ "bool Hook_InitializeEvents()", "md_Articles_2Hooks.html#autotoc_md8", null ],
-      [ "bool Hook_UpdateEvent(CB::Event @)", "md_Articles_2Hooks.html#autotoc_md9", null ],
-      [ "bool Hook_FillRoom(CB::Room @)", "md_Articles_2Hooks.html#autotoc_md10", null ],
-      [ "void Hook_PostFillRoom(CB::Room @)", "md_Articles_2Hooks.html#autotoc_md11", null ],
-      [ "bool Hook_LoadRoomTemplateEntity(CB::RoomTemplate @, int rMeshVersion, B3D::Stream @,...", "md_Articles_2Hooks.html#autotoc_md12", null ],
-      [ "bool Hook_UpdateItem(CB::Item @)", "md_Articles_2Hooks.html#autotoc_md13", null ],
-      [ "void Hook_RemoveItem(CB::Item @)", "md_Articles_2Hooks.html#autotoc_md14", null ],
-      [ "bool Hook_PickItem(CB::Item @)", "md_Articles_2Hooks.html#autotoc_md15", null ],
-      [ "bool Hook_DropItem(CB::Item @)", "md_Articles_2Hooks.html#autotoc_md16", null ],
-      [ "void Hook_SelectItem(CB::Item @)", "md_Articles_2Hooks.html#autotoc_md17", null ],
-      [ "void Hook_CombineItems(CB::Item @ draggedItem, CB::Item @ draggedOntoItem)", "md_Articles_2Hooks.html#autotoc_md18", null ],
-      [ "void Hook_CreateNPC(CB::NPC @)", "md_Articles_2Hooks.html#autotoc_md19", null ],
-      [ "void Hook_PostCreateNPC(CB::NPC @)", "md_Articles_2Hooks.html#autotoc_md20", null ],
-      [ "bool Hook_UpdateNPC(CB::NPC @)", "md_Articles_2Hooks.html#autotoc_md21", null ]
+      [ "bool Hook_UpdateEvent(<a class=\"el\" href=\"classCB_1_1Event.html\" title=\"CB::Event\">CB::Event</a> @)", "md_Articles_2Hooks.html#autotoc_md9", null ],
+      [ "bool Hook_FillRoom(<a class=\"el\" href=\"classCB_1_1Room.html\" title=\"CB::Room\">CB::Room</a> @)", "md_Articles_2Hooks.html#autotoc_md10", null ],
+      [ "void Hook_PostFillRoom(<a class=\"el\" href=\"classCB_1_1Room.html\" title=\"CB::Room\">CB::Room</a> @)", "md_Articles_2Hooks.html#autotoc_md11", null ],
+      [ "bool Hook_LoadRoomTemplateEntity(<a class=\"el\" href=\"classCB_1_1RoomTemplate.html\" title=\"CB::RoomTemplate\">CB::RoomTemplate</a> @, int rMeshVersion, <a class=\"el\" href=\"classB3D_1_1Stream.html\" title=\"B3D::Stream\">B3D::Stream</a> @, string entityName)", "md_Articles_2Hooks.html#autotoc_md12", null ],
+      [ "bool Hook_UpdateItem(<a class=\"el\" href=\"classCB_1_1Item.html\" title=\"CB::Item\">CB::Item</a> @)", "md_Articles_2Hooks.html#autotoc_md13", null ],
+      [ "void Hook_RemoveItem(<a class=\"el\" href=\"classCB_1_1Item.html\" title=\"CB::Item\">CB::Item</a> @)", "md_Articles_2Hooks.html#autotoc_md14", null ],
+      [ "bool Hook_PickItem(<a class=\"el\" href=\"classCB_1_1Item.html\" title=\"CB::Item\">CB::Item</a> @)", "md_Articles_2Hooks.html#autotoc_md15", null ],
+      [ "bool Hook_DropItem(<a class=\"el\" href=\"classCB_1_1Item.html\" title=\"CB::Item\">CB::Item</a> @)", "md_Articles_2Hooks.html#autotoc_md16", null ],
+      [ "void Hook_SelectItem(<a class=\"el\" href=\"classCB_1_1Item.html\" title=\"CB::Item\">CB::Item</a> @)", "md_Articles_2Hooks.html#autotoc_md17", null ],
+      [ "void Hook_CombineItems(<a class=\"el\" href=\"classCB_1_1Item.html\" title=\"CB::Item\">CB::Item</a> @ draggedItem, <a class=\"el\" href=\"classCB_1_1Item.html\" title=\"CB::Item\">CB::Item</a> @ draggedOntoItem)", "md_Articles_2Hooks.html#autotoc_md18", null ],
+      [ "void Hook_CreateNPC(<a class=\"el\" href=\"classCB_1_1NPC.html\" title=\"CB::NPC\">CB::NPC</a> @)", "md_Articles_2Hooks.html#autotoc_md19", null ],
+      [ "void Hook_PostCreateNPC(<a class=\"el\" href=\"classCB_1_1NPC.html\" title=\"CB::NPC\">CB::NPC</a> @)", "md_Articles_2Hooks.html#autotoc_md20", null ],
+      [ "bool Hook_UpdateNPC(<a class=\"el\" href=\"classCB_1_1NPC.html\" title=\"CB::NPC\">CB::NPC</a> @)", "md_Articles_2Hooks.html#autotoc_md21", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -75,5 +75,6 @@ var NAVTREEINDEX =
 "annotated.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';
