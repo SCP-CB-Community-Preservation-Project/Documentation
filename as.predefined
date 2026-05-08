@@ -2601,6 +2601,7 @@ class SubtitleMsg {
     void InsertAfter(CB::SubtitleMsg@);
     void InsertBefore(CB::SubtitleMsg@);
 }
+//! The amount of seconds elapsed since the last frame multipled by 70. Never goes above 5.
 float FPSFactor;
 bool HasNumericSeed;
 string RandomSeed;
