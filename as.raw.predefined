@@ -1,5 +1,14 @@
+string ToString(bool b);
 string ToString(float f);
+string ToString(double d);
+string ToString(int8 i);
+string ToString(uint8 u);
+string ToString(int16 i);
+string ToString(uint16 u);
 string ToString(int i);
+string ToString(uint u);
+string ToString(int64 i);
+string ToString(uint64 u);
 
 namespace B3D {
 void DebugLogRuntimeStats();
@@ -117,7 +126,6 @@ int get_TrisRendered() property;
 int get_Batches() property;
 float GetStats3D(int type);
 void SetScissorRect(int enable, int x = 0, int y = 0, int width = 0, int height = 0);
-float Distance(float x1, float x2, float y1, float y2, float z1 = 0, float z2 = 0);
 float DistanceSquared(float x1, float x2, float y1, float y2, float z1 = 0, float z2 = 0);
 void SetHardwareSkinning(int enable);
 int get_MemoryLoad() property;
@@ -317,8 +325,17 @@ string CurrentTime();
 }
 
 namespace CB {
-bool IsAnyMenuOpen();
 bool IsPaused();
+string FormatDuration(int ms, bool highPrecision = true);
+}
+
+namespace CB::Menu {
+string InputBox(int x, int y, int width, int height, string text, int id = 0, int virtualKeyboardMode = 0);
+void DrawFrame(int x, int y, int width, int height, int xOffset = 0, int yOffset = 0, bool scrollY = true);
+bool DrawButton(int x, int y, int width, int height, string text, bool bigFont = true, bool waitForMouseUp = false, bool disabled = false);
+bool DrawTick(int x, int y, bool selected, bool locked = false);
+bool IsAnyOpen();
+void StartNewGame();
 }
 
 namespace CB::Options {
@@ -461,7 +478,135 @@ CB::Event@ get_First() property;
 CB::Event@ get_Last() property;
 CB::Sound@ LoadSound(CB::Event@ event, string file, int num = 0);
 CB::Event@ Create(string eventName, string roomName, int id, float probability = 0);
-float UpdateElevator(float state, CB::Door@ door1, CB::Door@ door2, B3D::Entity@ room1, B3D::Entity@ room2, CB::Event@ event, bool ignorerotation = true);
+float UpdateElevator(float state, CB::Door@ door1, CB::Door@ door2, B3D::Entity@ room1, B3D::Entity@ room2, CB::Event@ event, bool ignoreRotation = true);
+void UpdateAll();
+void UpdateDimension1499();
+void UpdateEndings();
+}
+
+namespace CB::SubtitleBox {
+CB::SubtitleBox@ get_First() property;
+CB::SubtitleBox@ get_Last() property;
+}
+
+namespace CB::SubtitleColor {
+CB::SubtitleColor@ get_First() property;
+CB::SubtitleColor@ get_Last() property;
+}
+
+namespace CB::SubtitleEntry {
+CB::SubtitleEntry@ get_First() property;
+CB::SubtitleEntry@ get_Last() property;
+}
+
+namespace CB::SubtitleToken {
+CB::SubtitleToken@ get_First() property;
+CB::SubtitleToken@ get_Last() property;
+}
+
+namespace CB::QueuedSubtitleMsg {
+CB::QueuedSubtitleMsg@ get_First() property;
+CB::QueuedSubtitleMsg@ get_Last() property;
+}
+
+namespace CB::SubtitleMsg {
+CB::SubtitleMsg@ get_First() property;
+CB::SubtitleMsg@ get_Last() property;
+}
+
+namespace CB::Subtitles {
+void Load();
+void LoadEntities();
+void Queue(string soundPath, int soundHandle, B3D::Channel@ channel, bool isStream = false);
+void RemoveQueued(int soundHandle);
+void RemoveQueuedByChannel(B3D::Channel@ channel, bool isStream = false);
+void UpdateChannelVolume(B3D::Channel@ channel, float volume, bool isStream = false, bool isSFX = true);
+void UpdateQueuedVolume(B3D::Channel@ channel, float volume, bool isStream = false);
+void ResumeChannel(B3D::Channel@ channel);
+void PauseChannel(B3D::Channel@ channel);
+void SetQueuedPause(B3D::Channel@ channel, bool paused);
+void Clear();
+bool ShouldShow(CB::SubtitleEntry@ entry);
+CB::SubtitleMsg@ TryCreate(CB::QueuedSubtitleMsg@ queue, string txt = "");
+void TryCreateSplit(CB::QueuedSubtitleMsg@ queue, string txtLine, int padding);
+void RecalculateBoxTarget();
+void BumpUp(CB::SubtitleMsg@ msg);
+void Update(float factor);
+void Draw();
+void Render();
+string StripComments(string line);
+void LoadVoices(string path);
+void LoadTokens(string path, int tokenType);
+CB::SubtitleEntry@ CreateEntry(string key, string value, CB::SubtitleColor@ color, int tokenType);
+void CreateToken(CB::SubtitleEntry@ entry, string soundPathGroup, int tokenType);
+CB::SubtitleToken@ GetToken(string soundPath);
+string ParseSettings(CB::SubtitleEntry@ entry, string txt, bool isCaption = false);
+bool ApplyDataSetting(string key, string value, CB::SubtitleEntry@ entry);
+bool ApplyColorSetting(string key, string value, CB::SubtitleColor@ color);
+CB::SubtitleColor@ FindOrAddVoice(string voice);
+void CopyColor(CB::SubtitleColor@ fromColor, CB::SubtitleColor@ toColor, bool keepVoiceKey = false, bool keepBools = true);
+bool ColorsMatch(CB::SubtitleColor@ firstColor, CB::SubtitleColor@ secondColor);
+CB::SubtitleColor@ InternColor(CB::SubtitleColor@ color);
+void CleanupColors();
+}
+
+namespace Steam {
+bool Init();
+bool RestartAppIfNecessary(int appID);
+void Update();
+void Shutdown();
+cstr@ GetGameLanguage();
+bool GetOverlayState();
+bool GetOverlayUpdated();
+bool SetRichPresence(cstr@ key, cstr@ value);
+void PublishItem(cstr@ name, cstr@ desc, cstr@ path, cstr@ imgPath);
+void UpdateItem(cstr@ fileID, cstr@ name, cstr@ desc, cstr@ path, cstr@ imgPath, cstr@ changelog, bool updateTags);
+int QueryUpdateItemStatus();
+void ClearItemTags();
+void AddItemTag(cstr@ tag);
+void RemoveItemTag(cstr@ tag);
+cstr@ GetPublishedItemID();
+void LoadSubscribedItems();
+int GetSubscribedItemCount();
+cstr@ GetSubscribedItemID(int id);
+cstr@ GetSubscribedItemPath(int id);
+int StringToIDUpper(cstr@ cid);
+int StringToIDLower(cstr@ cid);
+cstr@ IDToString(int upperID, int lowerID);
+int GetPlayerIDUpper();
+int GetPlayerIDLower();
+cstr@ GetPlayerName();
+cstr@ GetOtherPlayerName(int upperID, int lowerID);
+void PushByte(int b);
+void PushShort(int s);
+void PushInt(int i);
+void PushFloat(float f);
+void PushString(cstr@ s);
+int PullByte();
+int PullShort();
+int PullInt();
+float PullFloat();
+cstr@ PullString();
+int GetSenderIDUpper();
+int GetSenderIDLower();
+int LoadPacket();
+bool SendPacketToUser(int upperID, int lowerID);
+bool CloseConnection(int upperID, int lowerID);
+bool CreateLobby(int lobbyType, int maxMembers);
+bool JoinLobby(int lobbyIDUpper, int lobbyIDLower);
+void LeaveLobby();
+int GetLobbyState();
+int GetLobbyIDUpper();
+int GetLobbyIDLower();
+int GetNumLobbyMembers();
+int GetLobbyMemberIDUpper(int member);
+int GetLobbyMemberIDLower(int member);
+int GetLobbyOwnerIDUpper();
+int GetLobbyOwnerIDLower();
+void ActivateOverlayInviteDialog();
+void SetAcceptLobbyInvites(bool accept);
+void OpenOnScreenKeyboard(int mode, int x, int y, int width, int height);
+void CloseOnScreenKeyboard();
 }
 
 class array<T> {
@@ -498,10 +643,15 @@ class array<T> {
     void set_Length(uint) property;
 }
 
+class cstr {
+}
+
 class string {
     ~string();
     string();
+    string(cstr@);
     string(const string&in);
+    cstr@ opImplCast();
     string& opAssign(const string&in);
     string& opAddAssign(const string&in);
     string opAdd(const string&in) const;
@@ -511,7 +661,15 @@ class string {
     int Find(const string&in toFind, int start = 0) const;
     string Replace(const string&in toReplace, const string&in replaceWith) const;
     float ParseFloat() const;
+    float ParseDouble() const;
+    int8 ParseInt8() const;
+    uint8 ParseUInt8() const;
+    int16 ParseInt16() const;
+    uint16 ParseUInt16() const;
     int ParseInt() const;
+    uint ParseUInt() const;
+    int64 ParseInt64() const;
+    uint64 ParseUInt64() const;
 }
 
 class carray<T> {
@@ -2293,8 +2451,6 @@ class Event {
     float State;
     float State2;
     float State3;
-    B3D::Channel@ Channel;
-    B3D::Channel@ Channel2;
     CB::Sound@ Sound;
     CB::Sound@ Sound2;
     int ChannelIsStream;
@@ -2306,10 +2462,118 @@ class Event {
     CB::Event@ get_Previous() const property;
     void InsertAfter(CB::Event@);
     void InsertBefore(CB::Event@);
+    B3D::Channel@ get_Channel() property;
+    B3D::Channel@ get_Channel2() property;
+    CB::Stream@ get_ChannelStream() property;
+    CB::Stream@ get_ChannelStream2() property;
+    void set_Channel(B3D::Channel@) property;
+    void set_Channel2(B3D::Channel@) property;
+    void set_ChannelStream(CB::Stream@) property;
+    void set_ChannelStream2(CB::Stream@) property;
+}
+
+class SubtitleBox {
+    float ScreenWidth;
+    float ScreenLeft;
+    float ScreenTop;
+    float CurrentTop;
+    float CurrentHeight;
+    float TargetTop;
+    float TargetHeight;
+    float Alpha;
+    int Lines;
+    B3D::Camera@ Camera;
+    B3D::Sprite@ Sprite;
+    void Delete();
+    CB::SubtitleBox@ get_Next() const property;
+    CB::SubtitleBox@ get_Previous() const property;
+    void InsertAfter(CB::SubtitleBox@);
+    void InsertBefore(CB::SubtitleBox@);
+}
+
+class SubtitleColor {
+    string VoiceKey;
+    string Name;
+    int R;
+    int G;
+    int B;
+    bool IsItalic;
+    bool IsBold;
+    float CooldownLength;
+    float MinVolume;
+    void Delete();
+    CB::SubtitleColor@ get_Next() const property;
+    CB::SubtitleColor@ get_Previous() const property;
+    void InsertAfter(CB::SubtitleColor@);
+    void InsertBefore(CB::SubtitleColor@);
+}
+
+class SubtitleEntry {
+    CB::SubtitleEntry@ NextEntry;
+    string Text;
+    CB::SubtitleColor@ Color;
+    int EntryType;
+    float Time;
+    float Length;
+    float Cooldown;
+    void Delete();
+    CB::SubtitleEntry@ get_Next() const property;
+    CB::SubtitleEntry@ get_Previous() const property;
+    void InsertAfter(CB::SubtitleEntry@);
+    void InsertBefore(CB::SubtitleEntry@);
+}
+
+class SubtitleToken {
+    string SoundPath;
+    int FromFile;
+    CB::SubtitleEntry@ Entry;
+    void Delete();
+    CB::SubtitleToken@ get_Next() const property;
+    CB::SubtitleToken@ get_Previous() const property;
+    void InsertAfter(CB::SubtitleToken@);
+    void InsertBefore(CB::SubtitleToken@);
+}
+
+class QueuedSubtitleMsg {
+    CB::SubtitleToken@ Token;
+    CB::SubtitleEntry@ Entry;
+    int SoundHandle;
+    B3D::Channel@ Channel;
+    bool IsStream;
+    float Volume;
+    int Paused;
+    float TimeStart;
+    void Delete();
+    CB::QueuedSubtitleMsg@ get_Next() const property;
+    CB::QueuedSubtitleMsg@ get_Previous() const property;
+    void InsertAfter(CB::QueuedSubtitleMsg@);
+    void InsertBefore(CB::QueuedSubtitleMsg@);
+}
+
+class SubtitleMsg {
+    CB::SubtitleEntry@ Entry;
+    string Text;
+    float Y;
+    float TimeLeft;
+    void Delete();
+    CB::SubtitleMsg@ get_Next() const property;
+    CB::SubtitleMsg@ get_Previous() const property;
+    void InsertAfter(CB::SubtitleMsg@);
+    void InsertBefore(CB::SubtitleMsg@);
 }
 float FPSFactor;
+bool HasNumericSeed;
+string RandomSeed;
+int RandomSeedNumeric;
+int TimerStopped;
+int PlayTime;
+}
+
+namespace CB::Menu {
+float Scale;
 bool IsMainMenuOpen;
-int OpenMenu;
+int MainMenuTab;
+int CurrentOpen;
 float StopHidingTimer;
 }
 
@@ -2482,6 +2746,17 @@ CB::Console::Msg@ Reissue;
 int R;
 int G;
 int B;
+}
+
+namespace CB::Subtitles {
+float TextHeight;
+float EarlyDelay;
+float FadeLength;
+bool Initialized;
+B3D::Font@ Font1Bold;
+B3D::Font@ Font1Italic;
+B3D::Font@ Font1BoldItalic;
+CB::SubtitleBox@ Box;
 }
 
 namespace CB {
