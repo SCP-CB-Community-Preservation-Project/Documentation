@@ -127,3 +127,60 @@ Called before an NPC is about to be removed. Can be used to prevent an NPC from 
 ## bool Hook_UpdateNPC(@ref CB::NPC \@)
 
 Called for every NPC every frame. Used to add behavior to custom NPCs or modify the behavior of existing NPCs.
+
+## CB::NPC::Type Hook_ConsoleNPCNameToType(@ref string name)
+
+Called when an NPC's name is to be parsed from console input.
+Returning `-1` will delegate responsibility to lower-priority mods and the base game.
+
+## string Hook_ConsoleNPCTypeToName(CB::NPC::Type type, bool isPlural)
+
+Called when an NPC's name is to be printed to the console.
+Returning `""` will delegate responsibility to lower-priority mods and the base game.
+
+## int Hook_ConsoleSpawnNPC(CB::NPC::Type type)
+
+Called when an NPC is to be spawned from the console.
+Returning `-1` will delegate responsibility to lower-priority mods and the base game.
+Returning `0` will disallow the NPC from being spawned via the console.
+Should only be overriden for custom NPCs when specific changes are necessary to make the NPC function correctly upon creation, in which case `1` must be returned.
+By default, NPCs are created 0.2 units above the player collider's position.
+
+## int Hook_ConsoleCheckCanChangeNPCSpeed(CB::NPC::Type type)
+
+Called when an NPC's speed is about to be changed via the console.
+Returning `-1` will delegate responsibility to lower-priority mods and the base game.
+Should only be overriden for custom NPCs to indicate that it is unaffected by the @ref NPC::Speed value by returning `0`.
+Returning `1` will indicate that the NPCs speed can be changed (the default for custom NPCs).
+Can also be overriden to indicate that a script modification to a base game NPC will allow it to be affected by the @ref NPC::Speed value.
+
+## int Hook_ConsoleCheckCanToggleNPC(CB::NPC::Type type)
+
+Called when an NPC is about to be enabled/disabled.
+Returning `-1` will delegate responsibility to lower-priority mods and the base game.
+Must only be overriden when implementations for `Hook_EnableNPC` and `Hook_DisableNPC` are provided for an NPC type, which is supported in the base game, in which case `1` must be returned.
+Returning `0` will indicate that the NPC cannot be enabled/disabled (the default for custom NPCs).
+
+## bool Hook_EnableNPC(@ref CB::NPC \@)
+
+Called when an NPC is to be enabled.
+
+> [!NOTE]
+> It is not guaranteed, that the NPC has previously been disabled.
+> This hook may be called on already enabled NPCs.
+
+> [!IMPORTANT]
+> `Hook_ConsoleCheckCanToggleNPC` must be overriden to allow for this hook to be called.
+> `Hook_DisableNPC` must also be overriden to actually do the disabling, which this hook undoes.
+
+## bool Hook_DisableNPC(@ref CB::NPC \@)
+
+Called when an NPC is to be disabled.
+
+> [!NOTE]
+> It is not guaranteed, that the NPC has previously been enabled.
+> This hook may be called on already disabled NPCs.
+
+> [!IMPORTANT]
+> `Hook_ConsoleCheckCanToggleNPC` must be overriden to allow for this hook to be called.
+> `Hook_EnableNPC` must also be overriden to undo the disabling.
