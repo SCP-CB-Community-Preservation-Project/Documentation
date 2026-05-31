@@ -135,53 +135,66 @@ bool Hook_LoadEntities()</h1>
 bool Hook_InitializeEvents()</h1>
 <p>Called before the events for a newly created save are initialized. Allows initializing custom events via <a class="el" href="namespaceCB_1_1Event.html#a516feb1e608fd80640c9b79d516b7bda" title="CB.Event.Create">CB.Event.Create</a>.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
-bool Hook_UpdateEvent(<a class="el" href="classCB_1_1Event.html" title="CB.Event">CB.Event</a> @)</h1>
+bool Hook_UpdateEvent(<a class="el" href="classCB_1_1Event.html" title="CB.Event">CB.Event</a>)</h1>
 <p>Called for every event every frame. Used to add behavior to custom events or modify the behavior of existing events.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
-bool Hook_FillRoom(<a class="el" href="classCB_1_1Room.html" title="CB.Room">CB.Room</a> @)</h1>
+bool Hook_FillRoom(<a class="el" href="classCB_1_1Room.html" title="CB.Room">CB.Room</a>)</h1>
 <p>Called when a room is created, before it is filled with doors, items and other entities. Used to add entities to custom rooms or modify the entities found in existing rooms.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
-void Hook_PostFillRoom(<a class="el" href="classCB_1_1Room.html" title="CB.Room">CB.Room</a> @)</h1>
+<dl class="section attention"><dt>Attention</dt><dd>The room entity may be rotated and moved after this hook has been called. All entities created in this hook SHOULD be parented to the CB::Room::Object.</dd></dl>
+<p>Example: </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> Hook_FillRoom(<a class="code hl_namespace" href="namespaceCB_1_1Room.html">CB::Room</a> r) {</div>
+<div class="line">    <span class="keywordflow">if</span> (r.Template.Name == <span class="stringliteral">&quot;myroom&quot;</span>) {</div>
+<div class="line">        Item it = Item(<span class="stringliteral">&quot;key6&quot;</span>, r.X, r.Y + 100.0 / 256.0, r.Z);</div>
+<div class="line">        it.Collider.Rotate(0.0, r.Angle + 45.0, 0.0);</div>
+<div class="line">        it.Collider.SetParent(r.Object);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespaceCB_1_1Room_html"><div class="ttname"><a href="namespaceCB_1_1Room.html">CB.Room</a></div><div class="ttdef"><b>Definition</b> as.predefined:385</div></div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+void Hook_PostFillRoom(<a class="el" href="classCB_1_1Room.html" title="CB.Room">CB.Room</a>)</h1>
 <p>Called when a room is created, after it has been filled with doors, items and other entities. Used to manipulate the entities the room has been filled with.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
-bool Hook_LoadRoomTemplateEntity(<a class="el" href="classCB_1_1RoomTemplate.html" title="CB.RoomTemplate">CB.RoomTemplate</a> @, int rMeshVersion, <a class="el" href="classB3D_1_1Stream.html" title="B3D.Stream">B3D.Stream</a> @, <a class="el" href="classstring.html" title="string">string</a> entityName)</h1>
+bool Hook_LoadRoomTemplateEntity(<a class="el" href="classCB_1_1RoomTemplate.html" title="CB.RoomTemplate">CB.RoomTemplate</a>, int rMeshVersion, <a class="el" href="classB3D_1_1Stream.html" title="B3D.Stream">B3D.Stream</a>, <a class="el" href="classstring.html" title="string">string</a> entityName)</h1>
 <p>Called before a map entity is loaded from an .rmesh file. Can be used to implement custom map entity types or override how existing entity types are loaded.</p>
 <dl class="section remark"><dt>Remarks</dt><dd>When implementing a custom map entity type, include a version byte in order to support backwards compatibility.</dd></dl>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
 void Hook_PostLoad()</h1>
 <p>Called when loading is finished and control is about to be handed to the player. Called after the player has pressed any key to continue.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
-bool Hook_CreateItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
+bool Hook_CreateItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a>)</h1>
 <p>Called when an item is created. Handles initialization of inventories for inventory items like wallet and clipboard unless overriden.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
-bool Hook_UpdateItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
+bool Hook_UpdateItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a>)</h1>
 <p>Called for every item every frame. Can be used for custom item logic. Handles gravity, reachability calculations for being picked up by the player and item-push behavior unless overriden.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
-void Hook_RemoveItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
+void Hook_RemoveItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a>)</h1>
 <p>Called when an item is removed from the world and freed.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
-bool Hook_PickItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
+bool Hook_PickItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a>)</h1>
 <p>Called when the player tries to pick up an item with sufficient inventory space remaining. The item is not added to the player's inventory when this function is overriden.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
-bool Hook_DropItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
+bool Hook_DropItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a>)</h1>
 <p>Called after the player dropped an item from their inventory.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
-void Hook_SelectItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @)</h1>
+void Hook_SelectItem(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a>)</h1>
 <p>Called when the player uses an item from their inventory.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
-void Hook_CombineItems(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @ draggedItem, <a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> @ draggedOntoItem)</h1>
+void Hook_CombineItems(<a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> draggedItem, <a class="el" href="classCB_1_1Item.html" title="CB.Item">CB.Item</a> draggedOntoItem)</h1>
 <p>Called when the player tries to combine two items.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
-void Hook_CreateNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a> @)</h1>
+void Hook_CreateNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a>)</h1>
 <p>Called before an NPC is initialized according to its CB::NPC::Type.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
-void Hook_PostCreateNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a> @)</h1>
+void Hook_PostCreateNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a>)</h1>
 <p>Called after an NPC is initialized.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
-bool Hook_RemoveNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a> @)</h1>
+bool Hook_RemoveNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a>)</h1>
 <p>Called before an NPC is about to be removed. Can be used to prevent an NPC from being removed. There is no danger of persisting NPCs when transitioning to the main menu, as they are deleted separately then.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
-bool Hook_UpdateNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a> @)</h1>
+bool Hook_UpdateNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a>)</h1>
 <p>Called for every NPC every frame. Used to add behavior to custom NPCs or modify the behavior of existing NPCs.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
 CB::NPC::Type Hook_ConsoleNPCNameToType(<a class="el" href="classstring.html" title="string">string</a> name)</h1>
@@ -199,12 +212,12 @@ int Hook_ConsoleCheckCanChangeNPCSpeed(CB::NPC::Type type)</h1>
 int Hook_ConsoleCheckCanToggleNPC(CB::NPC::Type type)</h1>
 <p>Called when an NPC is about to be enabled/disabled. Returning <span class="tt">-1</span> will delegate responsibility to lower-priority mods and the base game. Must only be overriden when implementations for <span class="tt">Hook_EnableNPC</span> and <span class="tt">Hook_DisableNPC</span> are provided for an NPC type, which is supported in the base game, in which case <span class="tt">1</span> must be returned. Returning <span class="tt">0</span> will indicate that the NPC cannot be enabled/disabled (the default for custom NPCs).</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
-bool Hook_EnableNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a> @)</h1>
+bool Hook_EnableNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a>)</h1>
 <p>Called when an NPC is to be enabled.</p>
 <dl class="section note"><dt>Note</dt><dd>It is not guaranteed, that the NPC has previously been disabled. This hook may be called on already enabled NPCs.</dd></dl>
 <dl class="section important"><dt>Important</dt><dd><span class="tt">Hook_ConsoleCheckCanToggleNPC</span> must be overriden to allow for this hook to be called. <span class="tt">Hook_DisableNPC</span> must also be overriden to actually do the disabling, which this hook undoes.</dd></dl>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
-bool Hook_DisableNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a> @)</h1>
+bool Hook_DisableNPC(<a class="el" href="classCB_1_1NPC.html" title="CB.NPC">CB.NPC</a>)</h1>
 <p>Called when an NPC is to be disabled.</p>
 <dl class="section note"><dt>Note</dt><dd>It is not guaranteed, that the NPC has previously been enabled. This hook may be called on already disabled NPCs.</dd></dl>
 <dl class="section important"><dt>Important</dt><dd><span class="tt">Hook_ConsoleCheckCanToggleNPC</span> must be overriden to allow for this hook to be called. <span class="tt">Hook_EnableNPC</span> must also be overriden to undo the disabling. </dd></dl>
