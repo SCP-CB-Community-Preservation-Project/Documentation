@@ -678,6 +678,27 @@ class carray<T> {
     const T& opIndex(int idx) const;
 }
 
+class dim1<T> {
+    int get_Length1() property;
+    T& opIndex(int idx1);
+    void Reinitialize(int len1);
+}
+
+class dim2<T> {
+    int get_Length1() property;
+    int get_Length2() property;
+    T& opIndex(int idx1, int idx2);
+    void Reinitialize(int len1, int len2);
+}
+
+class dim3<T> {
+    int get_Length1() property;
+    int get_Length2() property;
+    int get_Length3() property;
+    T& opIndex(int idx1, int idx2, int idx3);
+    void Reinitialize(int len1, int len2, int len3);
+}
+
 namespace B3D {
 
 class Stream {
@@ -2657,6 +2678,19 @@ CB::NPC@ Current173;
 CB::NPC@ Current106;
 CB::NPC@ Current096;
 CB::NPC@ Current5131;
+}
+
+namespace CB::Map {
+int Width;
+int Height;
+dim2<int> Temporary;
+dim2<int> Found;
+dim2<string> Name;
+dim1<int> RoomID;
+dim2<string> Room;
+dim2<int> RoomAmounts;
+dim2<int> MinPositions;
+dim2<int> MaxPositions;
 }
 
 namespace CB::Item {
