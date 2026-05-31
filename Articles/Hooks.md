@@ -69,6 +69,25 @@ Called for every event every frame. Used to add behavior to custom events or mod
 
 Called when a room is created, before it is filled with doors, items and other entities. Used to add entities to custom rooms or modify the entities found in existing rooms.
 
+> [!CAUTION]
+> The room entity may be rotated and moved after this hook has been called.
+> All entities created in this hook SHOULD be parented to the @ref CB::Room::Object.
+
+Example:
+```cs
+bool Hook_FillRoom(CB::Room r) {
+    if (r.Template.Name == "myroom") {
+        Item it = Item("key6", r.X, r.Y + 100.0 / 256.0, r.Z);
+        it.Collider.Rotate(0.0, r.Angle + 45.0, 0.0);
+        it.Collider.SetParent(r.Object);
+
+        return false;
+    }
+    
+    return false;
+}
+```
+
 ## void Hook_PostFillRoom(@ref CB::Room)
 
 Called when a room is created, after it has been filled with doors, items and other entities. Used to manipulate the entities the room has been filled with.
@@ -77,7 +96,7 @@ Called when a room is created, after it has been filled with doors, items and ot
 
 Called before a map entity is loaded from an .rmesh file. Can be used to implement custom map entity types or override how existing entity types are loaded.
 
-> [!tip]
+> [!TIP]
 > When implementing a custom map entity type, include a version byte in order to support backwards compatibility.
 
 ## void Hook_PostLoad()
