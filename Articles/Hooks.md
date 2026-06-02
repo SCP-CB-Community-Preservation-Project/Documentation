@@ -7,9 +7,19 @@ Some hooks allow returning a `bool` in order to completely override the behavior
 > [!warning]
 > Hooks that allow returning a `bool` *MUST* return one, in order to prevent undefined behavior from occurring.
 
+## void Hook_InitializeLauncher()
+
+Called when the launcher is initialized.
+Only called when the launcher is enabled.
+
+Custom resources used in the launcher should be loaded here.
+
+> [!caution]
+> Images that are loaded here will be freed when proceeding from the launcher.
+
 ## void Hook_Initialize()
 
-Called when your mod is first loaded.
+Called when the game is initialized.
 
 This is where custom image, font, shader and audio resources, as well as custom options can be loaded.
 
