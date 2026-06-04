@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fpsfactor_0',['FPSFactor',['../namespaceCB.html#a76153fe3957f7bfe46a9bbfc454520d6',1,'CB']]]
+  ['injuries_0',['Injuries',['../namespaceCB_1_1Player.html#af33496bc15124e0646807864f8027f42',1,'CB::Player']]]
 ];

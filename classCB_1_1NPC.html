@@ -173,14 +173,24 @@ bool&#160;</td><td class="memItemRight"><b>SeesNPC</b> (<a class="el" href="clas
 bool&#160;</td><td class="memItemRight"><b>SeesPlayer</b> (bool disableSoundOnCrouch=false)</td></tr>
 <tr class="memitem:ae05969b3c31bbef80e75d3e6421e3fda" id="r_ae05969b3c31bbef80e75d3e6421e3fda"><td class="memItemLeft"><a id="ae05969b3c31bbef80e75d3e6421e3fda" name="ae05969b3c31bbef80e75d3e6421e3fda"></a>
 bool&#160;</td><td class="memItemRight"><b>PlayerSees096Face</b> ()</td></tr>
-<tr class="memitem:a0bbdd47d05c062dc3580bf8d91badbec" id="r_a0bbdd47d05c062dc3580bf8d91badbec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0bbdd47d05c062dc3580bf8d91badbec">Animate</a> (float startFrame, float endFrame, float speed, bool loop=true)</td></tr>
-<tr class="memdesc:a0bbdd47d05c062dc3580bf8d91badbec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animates an <a class="el" href="classCB_1_1NPC.html">NPC</a>.  <br /></td></tr>
+<tr class="memitem:a485da89299cbb10b5ebd96068d2197d8" id="r_a485da89299cbb10b5ebd96068d2197d8"><td class="memItemLeft"><a id="a485da89299cbb10b5ebd96068d2197d8" name="a485da89299cbb10b5ebd96068d2197d8"></a>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; Documentation\as.predefined=======void PlayMTFSound(<a class="el" href="classCB_1_1Sound.html">CB::Sound</a>@);&gt; &gt; &gt; &gt; &gt; &gt; Mods as.predefined void&#160;</td><td class="memItemRight"><b>Animate</b> (float startFrame, float endFrame, float speed, bool loop=true)</td></tr>
 <tr class="memitem:a5f1f1b74431730cf6efadfd2ffed74bd" id="r_a5f1f1b74431730cf6efadfd2ffed74bd"><td class="memItemLeft"><a id="a5f1f1b74431730cf6efadfd2ffed74bd" name="a5f1f1b74431730cf6efadfd2ffed74bd"></a>
 void&#160;</td><td class="memItemRight"><b>SetNPCFrame</b> (float frame)</td></tr>
 <tr class="memitem:a8df0130db4c43afbc60382b5374ee1a6" id="r_a8df0130db4c43afbc60382b5374ee1a6"><td class="memItemLeft"><a id="a8df0130db4c43afbc60382b5374ee1a6" name="a8df0130db4c43afbc60382b5374ee1a6"></a>
 void&#160;</td><td class="memItemRight"><b>FinishWalking</b> (float startFrame, float endFrame, float speed)</td></tr>
 <tr class="memitem:a92e397a0f9d47c995e0e57e1291ea037" id="r_a92e397a0f9d47c995e0e57e1291ea037"><td class="memItemLeft"><a id="a92e397a0f9d47c995e0e57e1291ea037" name="a92e397a0f9d47c995e0e57e1291ea037"></a>
 void&#160;</td><td class="memItemRight"><b>ChangeNPCTexture</b> (int textureID)</td></tr>
+<tr class="memitem:ae0a6fd3683427943573dad7592682c76" id="r_ae0a6fd3683427943573dad7592682c76"><td class="memItemLeft"><a id="ae0a6fd3683427943573dad7592682c76" name="ae0a6fd3683427943573dad7592682c76"></a>
+void&#160;</td><td class="memItemRight"><b>ForceSetID</b> (int newID)</td></tr>
+<tr class="memitem:a3138e707ef2ac10305d6c8d421f340e2" id="r_a3138e707ef2ac10305d6c8d421f340e2"><td class="memItemLeft"><a id="a3138e707ef2ac10305d6c8d421f340e2" name="a3138e707ef2ac10305d6c8d421f340e2"></a>
+float&#160;</td><td class="memItemRight"><b>Find860Angle</b> (<a class="el" href="classCB_1_1Forest.html">CB::Forest</a>@)</td></tr>
+<tr class="memitem:a9059dcbda23362dfc630491dde5ea438" id="r_a9059dcbda23362dfc630491dde5ea438"><td class="memItemLeft"><a id="a9059dcbda23362dfc630491dde5ea438" name="a9059dcbda23362dfc630491dde5ea438"></a>
+void&#160;</td><td class="memItemRight"><b>EnableNPC</b> ()</td></tr>
+<tr class="memitem:a4b593383501df09d3a3a1ed419b38ad4" id="r_a4b593383501df09d3a3a1ed419b38ad4"><td class="memItemLeft"><a id="a4b593383501df09d3a3a1ed419b38ad4" name="a4b593383501df09d3a3a1ed419b38ad4"></a>
+void&#160;</td><td class="memItemRight"><b>DisableNPC</b> ()</td></tr>
+<tr class="memitem:a41cac8d432cf0fabb770a06796cabf47" id="r_a41cac8d432cf0fabb770a06796cabf47"><td class="memItemLeft"><a id="a41cac8d432cf0fabb770a06796cabf47" name="a41cac8d432cf0fabb770a06796cabf47"></a>
+void&#160;</td><td class="memItemRight"><b>ApplyDifficultySpeedScale</b> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -333,57 +343,6 @@ int&#160;</td><td class="memItemRight"><b>Channel2IsStream</b></td></tr>
 <tr class="memitem:ab1a88d8f5d56124b8172074f07cb5114" id="r_ab1a88d8f5d56124b8172074f07cb5114"><td class="memItemLeft"><a id="ab1a88d8f5d56124b8172074f07cb5114" name="ab1a88d8f5d56124b8172074f07cb5114"></a>
 float&#160;</td><td class="memItemRight"><b>FallingPickDistance</b></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a0bbdd47d05c062dc3580bf8d91badbec" name="a0bbdd47d05c062dc3580bf8d91badbec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bbdd47d05c062dc3580bf8d91badbec">&#9670;&#160;</a></span>Animate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CB.NPC.Animate </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>startFrame</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>endFrame</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>loop</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Animates an <a class="el" href="classCB_1_1NPC.html">NPC</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">startFrame</td><td>The first frame of the desired animation. </td></tr>
-    <tr><td class="paramname">endFrame</td><td>The frame after the last frame of the desired animation. </td></tr>
-    <tr><td class="paramname">speed</td><td>The speed of the desired animation, the speed at which the animation will play is 70fps * speed. </td></tr>
-    <tr><td class="paramname">loop</td><td>Whether or not the animation should loop. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="as_8predefined.html">as.predefined</a></li>
 </ul>

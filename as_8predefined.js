@@ -36,6 +36,7 @@ var as_8predefined =
     [ "CB.ParticleEmitter", "classCB_1_1ParticleEmitter.html", null ],
     [ "CB.ParticleTemplate", "classCB_1_1ParticleTemplate.html", null ],
     [ "CB.Waypoint", "classCB_1_1Waypoint.html", null ],
+    [ "CB.Forest", "classCB_1_1Forest.html", null ],
     [ "CB.NPC", "classCB_1_1NPC.html", "classCB_1_1NPC" ],
     [ "CB.Room", "classCB_1_1Room.html", null ],
     [ "CB.Door", "classCB_1_1Door.html", null ],
@@ -45,7 +46,6 @@ var as_8predefined =
     [ "CB.RoomTemplate", "classCB_1_1RoomTemplate.html", null ],
     [ "CB.TempWaypoint", "classCB_1_1TempWaypoint.html", null ],
     [ "CB.Triggerbox", "classCB_1_1Triggerbox.html", null ],
-    [ "CB.Forest", "classCB_1_1Forest.html", null ],
     [ "CB.MaintenanceTunnel", "classCB_1_1MaintenanceTunnel.html", null ],
     [ "CB.Decal", "classCB_1_1Decal.html", null ],
     [ "CB.ItemTemplate", "classCB_1_1ItemTemplate.html", null ],
@@ -65,7 +65,6 @@ var as_8predefined =
     [ "CB.Player.Bloodloss", "namespaceCB_1_1Player.html#a6eec4f4b57b941e3d6975ee316cc156f", null ],
     [ "CB.Player.CurrentRoom", "namespaceCB_1_1Player.html#ab6b180720c958fc513ac7fe9513a537b", null ],
     [ "CB.Player.DeathTimer", "namespaceCB_1_1Player.html#af5b798dc256a40d63012f41731a10c33", null ],
-    [ "CB.FPSFactor", "namespaceCB.html#a76153fe3957f7bfe46a9bbfc454520d6", null ],
     [ "CB.Player.Injuries", "namespaceCB_1_1Player.html#af33496bc15124e0646807864f8027f42", null ],
     [ "CB.Player.Playable", "namespaceCB_1_1Player.html#acfde30e5ce6de55ce612742f801fa5f4", null ],
     [ "CB.Player.PlayerZone", "namespaceCB_1_1Player.html#aa59712199ef03fac02eaa92c5dbce264", null ]
