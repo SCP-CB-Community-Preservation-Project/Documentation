@@ -102,6 +102,11 @@ bool Hook_FillRoom(CB::Room r) {
 
 Called when a room is created, after it has been filled with doors, items and other entities. Used to manipulate the entities the room has been filled with.
 
+> [!tip]
+> When seeking to move already placed entities, keep in mind that they are already parented to the room's pivot entity, which is already scaled with the room scale.
+> This means newly specified local positions must not be manually scaled with the room scale.
+> DO: `r.Objects[0].Position(1144.0, -448.0, 704.0);`; DON'T: `r.Objects[0].Position(1144.0 / 256.0, -448.0 / 256.0, 704.0 / 256.0);`
+
 ## bool Hook_LoadRoomTemplateEntity(@ref CB::RoomTemplate, int rMeshVersion, @ref B3D::Stream, @ref string entityName)
 
 Called before a map entity is loaded from an .rmesh file. Can be used to implement custom map entity types or override how existing entity types are loaded.
