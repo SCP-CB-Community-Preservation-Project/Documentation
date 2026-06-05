@@ -2224,7 +2224,7 @@ class NPC {
     bool SeesNPC(CB::NPC@ other);
     bool SeesPlayer(bool disableSoundOnCrouch = false);
     bool PlayerSees096Face();
-<<<<<<< Documentation\as.predefined
+    void PlayMTFSound(CB::Sound@);
     //! Animates an NPC.
     /*!
         \param startFrame The first frame of the desired animation.
@@ -2232,9 +2232,6 @@ class NPC {
         \param speed The speed of the desired animation, the speed at which the animation will play is 70fps * speed.
         \param loop Whether or not the animation should loop.
     */
-=======
-    void PlayMTFSound(CB::Sound@);
->>>>>>> Mods\as.predefined
     void Animate(float startFrame, float endFrame, float speed, bool loop = true);
     void SetNPCFrame(float frame);
     void FinishWalking(float startFrame, float endFrame, float speed);
@@ -2705,9 +2702,6 @@ class SubtitleMsg {
     void InsertAfter(CB::SubtitleMsg@);
     void InsertBefore(CB::SubtitleMsg@);
 }
-<<<<<<< Documentation\as.predefined
-//! The amount of seconds elapsed since the last frame multiplied by 70. Capped at a maximum value of 5.
-=======
 
 class Achievement {
     string Name;
@@ -2738,7 +2732,7 @@ class AchievementMessage {
     void InsertAfter(CB::AchievementMessage@);
     void InsertBefore(CB::AchievementMessage@);
 }
->>>>>>> Mods\as.predefined
+//! The amount of seconds elapsed since the last frame multiplied by 70. Capped at a maximum value of 5.
 float FPSFactor;
 bool HasNumericSeed;
 string RandomSeed;
